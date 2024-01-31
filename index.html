@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BreatheWell: See The Air You Inhale</title>
+    <style>
+        body {
+        background-repeat: no-repeat;
+        background-position: center center;
+        background-size: 100% 100%;  /* This will make the background image cover the whole screen */
+        align-items: center;
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0; /* Remove default margin */
+        height: 100vh; /* Set the height of the body to 100% of the viewport height */
+        background-image: url("data:image/jpeg;base64,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");
+        }
+
+        h1 {
+            font-size: 2em;
+            margin-top: 10px; /* Adjusted margin for the title */
+        }
+
+        h3 {
+            font-size: 1.5em;
+        }
+
+        #uploadForm {
+            margin-top: 20px;
+        }
+
+        #fileInput {
+            background-color: #4CAF50; /* Green color */
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+
+        #airQuality, #chatbotResponse {
+            font-size: 1.2em;
+        }
+
+        #chatbox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        #submitQuery {
+            background-color: #008CBA; /* Blue color */
+            color: white;
+            border: none;
+            padding: 8px 16px; /* Adjusted padding */
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px; /* Decreased font size */
+            margin: 10px 0; /* Adjusted margin */
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        #chatContainer {
+            width: 50%; /* Span across the whole window */
+            margin-top: 20px;
+        }
+
+        #youChat {
+            padding: 10px;
+            margin-bottom: 10px;
+            width: 100%; /* Adjusted width for the "You" chat input */
+            background-color: #FFFFFF; /* Very light tone of black */
+            color: black;
+            font-size: 16px;
+            border: none;
+        }
+
+        #youChat:hover {
+            border: 1px solid red; /* Thin red border on hover */
+        }
+
+        #breatheWellBot {
+            margin-top: 20px;
+        }
+
+        #breatheWellBot h3 {
+            margin: 0;
+        }
+
+        #chatbotResponse {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>BreatheWell: See The Air You Inhale</h1>
+    
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput" accept=".jpg, .jpeg, .png, .gif">
+        <button type="button" onclick="uploadFile()">Upload Image</button>
+    </form>
+
+    <div id="result">
+        <p id="airQuality">Air Quality: </p>
+    </div>
+
+    <div id="breatheWellBot">
+        <h3>BreatheWell Bot</h3>
+    </div>
+
+    <div id="chatbox">
+        <div id="chatContainer">
+            <input type="text" id="youChat" placeholder="Ask a question..." />
+            
+            <p id="chatbotResponse"></p>
+        </div>
+
+        <button type="button" onclick="submitQuery()" id="submitQuery">Submit Query</button>
+    </div>
+
+    <script>
+        function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const file = fileInput.files[0];
+            const formData = new FormData();
+            formData.append('file', file);
+
+            fetch('/upload', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                const resultDiv = document.getElementById('result');
+                const airQualityParagraph = document.getElementById('airQuality');
+
+                // Update the air quality result
+                airQualityParagraph.textContent = `Air Quality: ${data.result_class}`;
+            })
+            .catch(error => console.error('Error:', error));
+        }
+
+        function submitQuery() {
+            const youChatInput = document.getElementById('youChat');
+            const chatbotResponseParagraph = document.getElementById('chatbotResponse');
+
+            // Take user's query directly from the "You" chat input
+            const userQuery = youChatInput.value;
+
+            // Check if the userQuery is not empty and then call the backend to get the chatbot response
+            if (userQuery.trim() !== '') {
+                fetch(`/chat?query=${encodeURIComponent(userQuery)}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        // Update chatbot's response
+                        chatbotResponseParagraph.textContent = `${data.chatbot_response}`;
+                    })
+                    .catch(error => console.error('Error:', error));
+            }
+        }
+    </script>
+</body>
+</html>
